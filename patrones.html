@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrones de Diseño: Decorator y Command</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'decorator-tab')">Validador (Decorator)</button>
+        <button class="tab-button" onclick="openTab(event, 'command-tab')">Historial (Command)</button>
+    </div>
+
+    <div id="decorator-tab" class="tab-content active">
+        <div class="container">
+            <h1>Validador de Contraseñas</h1>
+            <p>Introduce una contraseña para validarla y generar su hash.</p>
+
+            <div class="input-group">
+                <label for="passwordInput">Contraseña:</label>
+                <input type="password" id="passwordInput" placeholder="Escribe tu contraseña aquí...">
+            </div>
+
+            <button id="validateAndHashButton">Validar y Generar Hash</button>
+
+            <div class="output-section">
+                <label for="validationResult">Resultado Validación:</label>
+                <textarea id="validationResult" readonly></textarea>
+            </div>
+            <div class="output-section">
+                <label for="hashedPassword">Hash de la Contraseña:</label>
+                <textarea id="hashedPassword" readonly></textarea>
+            </div>
+            
+            <!-- Historial agregado aquí -->
+            <div class="output-section">
+                <label for="decoratorHistoryOutput">Historial de Operaciones:</label>
+                <textarea id="decoratorHistoryOutput" readonly></textarea>
+            </div>
+            <div class="button-group">
+                <button id="clearDecoratorHistoryButton">Limpiar Historial</button>
+            </div>
+            <p class="error-message" id="decoratorErrorMessage"></p>
+        </div>
+    </div>
+
+    <div id="command-tab" class="tab-content">
+        <div class="container">
+            <h1>Operaciones de Hash</h1>
+            <p>Introduce texto y ejecuta operaciones de hash, que se guardarán en un historial.</p>
+
+            <div class="input-group">
+                <label for="textInput">Texto:</label>
+                <input type="text" id="textInput" placeholder="Introduce tu texto aquí...">
+            </div>
+
+            <div class="button-group">
+                <button id="hashCommandButton">Generar Hash</button>
+                <button id="clearHistoryButton">Limpiar Historial</button>
+            </div>
+
+            <div class="output-section">
+                <label for="currentHashOutput">Último Hash Generado:</label>
+                <textarea id="currentHashOutput" readonly></textarea>
+            </div>
+
+            <div class="output-section">
+                <label for="historyOutput">Historial de Operaciones:</label>
+                <textarea id="historyOutput" readonly></textarea>
+            </div>
+            <p class="error-message" id="commandErrorMessage"></p>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+</html>
